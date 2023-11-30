@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 // reading text asynchronoulsy
-fs.readFile("./text/read.txt", 'utf-8', (err, data) => {
+fs.readFile("./text/read.txt", "utf-8", (err, data) => {
   if (err) {
     throw Error("Error Reading Text");
   }
@@ -15,4 +15,4 @@ fs.readFile("./text/read.txt", 'utf-8', (err, data) => {
   });
 });
 
-  console.log('Testing asynchronous');
+console.log("Testing asynchronous");
