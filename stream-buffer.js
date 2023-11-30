@@ -11,11 +11,18 @@ server.on("request", (req, res) => {
   const readableStream = fs.createReadStream(process.cwd() + "/text/read.txt");
 
   readableStream.on("data", (buffer) => {
+    res.statusCode = 200;
     res.write(buffer);
   });
 
   readableStream.on("end", () => {
-    res.end("Hello from world");
+    res.statusCode = 200;
+    res.end("The streaming is over");
+  });
+
+  readableStream.on("error", () => {
+    res.statusCode = 500;
+    res.end("Something went wrong");
   });
 });
 
